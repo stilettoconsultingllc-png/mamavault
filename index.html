@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MamaVault Prototype</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Landing page shown first, similar to a welcome/login screen -->
+    <section id="landing" class="landing-screen">
+      <div class="landing-card">
+        <h1>MamaVault</h1>
+        <p>
+          A warm, secure place to organize family records. This prototype uses local
+          mock data only.
+        </p>
+        <button id="enterAppButton" class="primary-button">Enter Dashboard</button>
+      </div>
+    </section>
+
+    <!-- Main app layout hidden until user enters from landing screen -->
+    <section id="app" class="app-shell hidden">
+      <aside class="sidebar">
+        <h2>MamaVault</h2>
+        <nav>
+          <!-- Each button includes a data-page value we use in JavaScript routing -->
+          <button class="nav-link active" data-page="dashboard">Dashboard</button>
+          <button class="nav-link" data-page="children">Children</button>
+          <button class="nav-link" data-page="medical">Medical Records</button>
+          <button class="nav-link" data-page="school">School Records</button>
+          <button class="nav-link" data-page="emergency">Emergency Contacts</button>
+          <button class="nav-link" data-page="documents">Documents</button>
+          <button class="nav-link" data-page="settings">Settings</button>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <header class="page-header">
+          <h1 id="pageTitle">Dashboard</h1>
+          <p>Prototype only — do not upload real sensitive child information yet.</p>
+        </header>
+
+        <section id="dashboard" class="page visible">
+          <div class="card-grid">
+            <article class="card">
+              <h3>Children Profiles</h3>
+              <p id="childrenCount">0 children in mock data.</p>
+            </article>
+            <article class="card">
+              <h3>Medical Records</h3>
+              <p id="medicalCount">0 records in mock data.</p>
+            </article>
+            <article class="card">
+              <h3>School Records</h3>
+              <p id="schoolCount">0 records in mock data.</p>
+            </article>
+            <article class="card">
+              <h3>Emergency Contacts</h3>
+              <p id="contactCount">0 contacts in mock data.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="children" class="page">
+          <div class="card">
+            <h3>Add Child Profile</h3>
+            <form class="form-grid">
+              <label>Child full name<input type="text" placeholder="Avery Johnson" /></label>
+              <label>Date of birth<input type="date" /></label>
+              <label>Allergies<input type="text" placeholder="Peanuts" /></label>
+              <label>Doctor name<input type="text" placeholder="Dr. Harper" /></label>
+              <label>School name<input type="text" placeholder="Sunrise Elementary" /></label>
+              <label class="full-row">Notes<textarea placeholder="Extra care notes..."></textarea></label>
+              <button type="button" class="primary-button">Save Profile (Prototype)</button>
+            </form>
+          </div>
+        </section>
+
+        <section id="medical" class="page">
+          <div class="card">
+            <h3>Add Medical Record</h3>
+            <form class="form-grid">
+              <label>Child selector<select id="medicalChildSelect"></select></label>
+              <label>Record type<input type="text" placeholder="Vaccination" /></label>
+              <label>Doctor/provider<input type="text" placeholder="City Clinic" /></label>
+              <label>Date<input type="date" /></label>
+              <label class="full-row">Notes<textarea placeholder="Visit details..."></textarea></label>
+              <label class="full-row">Upload file placeholder<input type="file" disabled /></label>
+              <button type="button" class="primary-button">Save Medical Record (Prototype)</button>
+            </form>
+          </div>
+        </section>
+
+        <section id="school" class="page">
+          <div class="card">
+            <h3>Add School Record</h3>
+            <form class="form-grid">
+              <label>Child selector<select id="schoolChildSelect"></select></label>
+              <label>School name<input type="text" placeholder="Sunrise Elementary" /></label>
+              <label>Teacher name<input type="text" placeholder="Ms. Carter" /></label>
+              <label>Grade<input type="text" placeholder="3" /></label>
+              <label class="full-row">Notes<textarea placeholder="Progress notes..."></textarea></label>
+              <label class="full-row">Upload file placeholder<input type="file" disabled /></label>
+              <button type="button" class="primary-button">Save School Record (Prototype)</button>
+            </form>
+          </div>
+        </section>
+
+        <section id="emergency" class="page">
+          <div class="card">
+            <h3>Add Emergency Contact</h3>
+            <form class="form-grid">
+              <label>Contact name<input type="text" placeholder="Jordan Smith" /></label>
+              <label>Relationship<input type="text" placeholder="Aunt" /></label>
+              <label>Phone<input type="tel" placeholder="(555) 123-4567" /></label>
+              <label>Email<input type="email" placeholder="jordan@example.com" /></label>
+              <label class="full-row">Notes<textarea placeholder="Best time to call..."></textarea></label>
+              <button type="button" class="primary-button">Save Emergency Contact (Prototype)</button>
+            </form>
+          </div>
+        </section>
+
+        <section id="documents" class="page">
+          <div class="card">
+            <h3>Upload Document</h3>
+            <form class="form-grid">
+              <label class="full-row">Upload section placeholder<input type="file" disabled /></label>
+              <label>Document category<input type="text" placeholder="ID, Insurance, Consent Form" /></label>
+              <label>Child selector<select id="documentsChildSelect"></select></label>
+              <label class="full-row">Notes<textarea placeholder="Document details..."></textarea></label>
+              <button type="button" class="primary-button">Save Document (Prototype)</button>
+            </form>
+          </div>
+        </section>
+
+        <section id="settings" class="page">
+          <div class="card">
+            <h3>Settings</h3>
+            <p>
+              Future settings can include account preferences, alerts, and sharing
+              permissions.
+            </p>
+          </div>
+        </section>
+      </main>
+    </section>
+
+    <script src="app.js"></script>
+  </body>
+</html>
