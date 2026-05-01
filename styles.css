@@ -149,23 +149,106 @@ button:focus-visible {
 }
 
 .dashboard-card {
-  background: var(--card-white);
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(243, 216, 223, 0.24), transparent 34%),
+    linear-gradient(170deg, #ffffff 0%, #fffaf5 100%);
   border-radius: var(--radius-card);
   padding: var(--space-6);
-  border: 1px solid var(--border-soft);
-  border-left: 4px solid var(--accent-blush-strong);
-  box-shadow: 0 10px 24px rgba(45, 42, 36, 0.09);
+  border: 1px solid #f0e4d7;
+  box-shadow:
+    0 14px 32px rgba(49, 37, 43, 0.11),
+    0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.dashboard-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  border: 1px solid rgba(200, 159, 86, 0.3);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  border-color: #ead8c2;
+  box-shadow:
+    0 20px 38px rgba(49, 37, 43, 0.16),
+    0 0 0 1px rgba(255, 255, 255, 0.95) inset;
+}
+
+.dashboard-card:hover::before {
+  opacity: 1;
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.card-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 999px;
+  font-size: 1.15rem;
+  background: linear-gradient(140deg, #ffe6ee, #fff4dd);
+  box-shadow: 0 6px 12px rgba(188, 153, 100, 0.25);
+}
+
+.card-badge {
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  color: #714f29;
+  padding: 0.28rem 0.58rem;
+  border-radius: 999px;
+  border: 1px solid #ead6b5;
+  background: linear-gradient(135deg, #fff8e9, #fff3db);
 }
 
 .dashboard-card h3 {
   margin: 0 0 var(--space-3);
   color: var(--text-navy);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.28rem;
 }
 
 .dashboard-card p {
   margin: 0;
   color: var(--text-navy-soft);
   line-height: 1.6;
+  min-height: 4.5rem;
+}
+
+.card-link {
+  margin-top: var(--space-5);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #17315b;
+  background: rgba(243, 216, 223, 0.35);
+  border: 1px solid rgba(231, 191, 201, 0.75);
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.card-link:hover {
+  background: rgba(243, 216, 223, 0.6);
+  color: #102447;
+  transform: translateX(2px);
 }
 
 @media (max-width: 900px) {
