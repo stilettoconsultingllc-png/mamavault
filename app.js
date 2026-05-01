@@ -3,43 +3,43 @@ const dashboardModules = [
     icon: "🧸",
     title: "Child Safety Packet",
     description: "Snapshot packet with allergies, medications, care plan, and pickup instructions.",
-    status: "Ready to share",
-    cta: "Open Packet",
+    status: "Ready",
+    cta: "Open",
   },
   {
     icon: "🩺",
     title: "Doctor’s Hub",
     description: "Mock timeline for visits, immunizations, pediatric contacts, and reminders.",
-    status: "2 upcoming reminders",
-    cta: "View Timeline",
+    status: "Needs update",
+    cta: "Review",
   },
   {
     icon: "📚",
     title: "School Hub",
     description: "Track schedules, teacher notes, permission slips, and classroom updates.",
-    status: "3 new notes",
-    cta: "See School Updates",
+    status: "2 missing",
+    cta: "Fix Now",
   },
   {
     icon: "💌",
     title: "MamaVault Email Hub",
     description: "Prototype inbox view for school, clinic, and caregiver message summaries.",
-    status: "Daily digest on",
-    cta: "Read Digest",
+    status: "New message",
+    cta: "Open Inbox",
   },
   {
     icon: "🗂️",
     title: "Document Vault",
     description: "Central placeholder for IDs, insurance cards, and emergency forms.",
-    status: "Last synced today",
-    cta: "Browse Vault",
+    status: "Secure",
+    cta: "View Files",
   },
   {
     icon: "☎️",
     title: "Emergency Contacts",
     description: "Quick-call list for guardians, family backups, and trusted neighbors.",
-    status: "All numbers verified",
-    cta: "Open Contacts",
+    status: "Ready",
+    cta: "Call List",
   },
 ];
 
@@ -49,16 +49,14 @@ dashboardModules.forEach((module) => {
   const card = document.createElement("article");
   card.className = "dashboard-card";
   card.innerHTML = `
+    <div class="card-accent" aria-hidden="true"></div>
     <div class="card-top">
       <span class="card-icon" aria-hidden="true">${module.icon}</span>
       <span class="card-badge">${module.status}</span>
     </div>
     <h3>${module.title}</h3>
     <p>${module.description}</p>
-    <a href="#" class="card-link" aria-label="${module.cta} for ${module.title}">
-      ${module.cta}
-      <span aria-hidden="true">→</span>
-    </a>
+    <button class="card-action" aria-label="${module.cta} for ${module.title}">${module.cta}</button>
   `;
   dashboardCards.appendChild(card);
 });
